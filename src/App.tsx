@@ -780,7 +780,6 @@ export default function App() {
             triggerToast("اجرای فایل", `فایل با موفقیت با استفاده از برنامه ${appName} شروع به کار کرد.`);
             setOpeningTask(null);
           }}
-          onShowInFolder={handleShowInFolder}
         />
       )}
 
