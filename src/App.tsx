@@ -19,6 +19,8 @@ import OpenFileModal from "./components/OpenFileModal.js";
 import CategoryVolumeChart from "./components/CategoryVolumeChart.js";
 import ChromeIntegration from "./components/ChromeIntegration.js";
 import FileExplorer from "./components/FileExplorer.js";
+import NativeAppExporterModal from "./components/NativeAppExporterModal.js";
+import { isNativeApp, getPlatformName } from "./utils/nativeBridge.js";
 
 const undoLogo = "/src/assets/images/undo_suite_icon_1782225107018.jpg";
 
@@ -65,9 +67,10 @@ export default function App() {
   const [highlightedFileId, setHighlightedFileId] = useState<string | null>(null);
   const [isDark, setIsDark] = useState<boolean>(true);
   const [themeColor, setThemeColor] = useState<"blue" | "rose" | "emerald" | "purple" | "amber">(
-    () => (localStorage.getItem("raha_theme_color") as any) || "blue"
+    () => (localStorage.getItem("undo_theme_color") as any) || "blue"
   );
   const [openingTask, setOpeningTask] = useState<DownloadTask | null>(null);
+  const [showNativeModal, setShowNativeModal] = useState<boolean>(false);
   
   const [ytDlpVersion, setYtDlpVersion] = useState<string>(
     () => localStorage.getItem("undo_ytdlp_version") || "2026.06.01"
@@ -318,7 +321,7 @@ export default function App() {
   }, [isDark]);
 
   useEffect(() => {
-    localStorage.setItem("raha_theme_color", themeColor);
+    localStorage.setItem("undo_theme_color", themeColor);
   }, [themeColor]);
 
   const styleString = `
@@ -480,6 +483,16 @@ export default function App() {
 
           {/* Theme Switcher and State Cloud Status */}
           <div className="flex items-center gap-3">
+            {/* Native APK Config Button */}
+            <button
+              onClick={() => setShowNativeModal(true)}
+              className="text-[10px] flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-bold border bg-emerald-500/10 border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 cursor-pointer transition-all active:scale-95 shadow-sm"
+              title="مشاهده ساختار و خروجی نسخه نیتیو اندروید"
+            >
+              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>پیکربندی APK اندروید</span>
+            </button>
+
             {/* Sync connection status visual badge */}
             <span className={`text-[10px] hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full font-mono uppercase tracking-wider ${
               isDark ? "bg-[#1C1C1F] text-white/60 border border-white/5" : "bg-emerald-100 text-emerald-800"
@@ -780,6 +793,13 @@ export default function App() {
             triggerToast("اجرای فایل", `فایل با موفقیت با استفاده از برنامه ${appName} شروع به کار کرد.`);
             setOpeningTask(null);
           }}
+        />
+      )}
+
+      {showNativeModal && (
+        <NativeAppExporterModal
+          isDark={isDark}
+          onClose={() => setShowNativeModal(false)}
         />
       )}
 

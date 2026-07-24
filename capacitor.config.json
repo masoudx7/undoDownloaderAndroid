@@ -1,0 +1,18 @@
+{
+  "appId": "ir.undo.downloadmanager",
+  "appName": "Undo Download Manager",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "Filesystem": {
+      "androidPublicStorage": true
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config",
+      "iconColor": "#10B981"
+    }
+  }
+}

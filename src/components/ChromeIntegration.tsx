@@ -13,16 +13,16 @@ interface ChromeIntegrationProps {
 
 export default function ChromeIntegration({ isDark, onSimulateDownload }: ChromeIntegrationProps) {
   const [enabled, setEnabled] = useState(() => {
-    const saved = localStorage.getItem("raha_chrome_capture");
+    const saved = localStorage.getItem("undo_chrome_capture");
     return saved !== "false"; // default to true
   });
   const [protocolRegistered, setProtocolRegistered] = useState(true);
-  const [testUrl, setTestUrl] = useState("https://dl3.rahavideo.xyz/archive/2026/film_jadid_720p.mp4");
+  const [testUrl, setTestUrl] = useState("https://dl3.undovideo.xyz/archive/2026/film_jadid_720p.mp4");
   const [testName, setTestName] = useState("film_jadid_720p.mp4");
   const [showNotification, setShowNotification] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem("raha_chrome_capture", String(enabled));
+    localStorage.setItem("undo_chrome_capture", String(enabled));
   }, [enabled]);
 
   const handleTestClick = (e: React.MouseEvent) => {
@@ -32,7 +32,7 @@ export default function ChromeIntegration({ isDark, onSimulateDownload }: Chrome
       return;
     }
     
-    // Simulate Raha hijacking Chrome download click
+    // Simulate Undo hijacking Chrome download click
     setShowNotification(true);
     setTimeout(() => {
       onSimulateDownload(testUrl, testName || "captured_chrome_file.mp4");

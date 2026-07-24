@@ -611,7 +611,7 @@ export default function AddDownloadForm({ isDark, onAddDownload, prefilled, onCl
               />
               <div className="flex flex-col">
                 <span className={`text-xs font-bold ${isDark ? "text-white/80" : "text-slate-700"}`}>دانلود زمان‌بندی شده</span>
-                <span className={`text-[10px] ${isDark ? "text-white/40" : "text-slate-450"}`}>رهاسازی و دانلود در ساعات کم‌ترافیک شبانه</span>
+                <span className={`text-[10px] ${isDark ? "text-white/40" : "text-slate-450"}`}>شروع خودکار و دانلود در ساعات کم‌ترافیک شبانه</span>
               </div>
             </label>
 
