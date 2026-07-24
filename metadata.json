@@ -1,6 +1,6 @@
 {
   "name": "Undo Suite",
   "description": "یک سامانه هوشمند و پیشرفته برای مدیریت فناوری، توسعه ابزارها و دانلودهای شبکه با قابلیت همگام‌ساز منحصربه‌فرد",
-  "requestFramePermissions": ["microphone"],
+  "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

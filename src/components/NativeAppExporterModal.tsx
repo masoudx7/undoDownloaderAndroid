@@ -81,10 +81,11 @@ export default function NativeAppExporterModal({ isDark, onClose }: NativeAppExp
               <span>قابلیت‌های نسخه مستقیم اندروید (Capacitor Native Engine)</span>
             </div>
             <ul className="text-[11px] text-white/70 space-y-1.5 list-disc list-inside leading-relaxed">
+              <li>پروژه کامل اندروید (Kotlin + Jetpack Compose + Material 3) در پوشه <code className="text-emerald-400 font-mono text-[10px]">/android/</code> تولید شد.</li>
+              <li>ذخیره‌سازی دیتابیس محلی با Room Database و الگوی ViewModel + Repository</li>
               <li>ذخیره‌سازی مستقیم در حافظه اصلی گوشی: <code className="text-emerald-400 font-mono text-[10px]">/storage/emulated/0/Download/Undo/</code></li>
               <li>ارسال مستقیم به File Manager و بازکردن خودکار با نرم‌افزارهای نصب‌شده (Intent ACTION_VIEW)</li>
               <li>نوتیفیکیشن‌های پیش‌فرض نوار وضعیت اندروید (System Status Bar Notifications)</li>
-              <li>پشتیبانی از دانلود در پس‌زمینه سیستم‌عامل حتی با بستن برنامه</li>
             </ul>
           </div>
 
